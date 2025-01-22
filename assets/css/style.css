@@ -279,10 +279,61 @@ body {
 }
 
 .course-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.course-card.enrolled {
+    border: 2px solid #28a745;
+    background-color: #f8fff9;
+}
+
+.course-card.full {
+    border: 2px solid #dc3545;
+    background-color: #fff8f8;
+}
+
+.status-banner {
+    position: absolute;
+    top: 10px;
+    right: -5px;
+    background-color: #28a745;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    transform: rotate(3deg);
+}
+
+.semester-badge {
+    background-color: #17a2b8;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.seats-info {
+    font-weight: 500;
+}
+
+.seats-info.low-seats {
+    color: #dc3545;
+}
+
+.enrollment-status {
+    color: #28a745;
+    font-weight: 500;
+}
+
+.waitlist-status {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.enrolled-btn {
+    background-color: #28a745 !important;
+    opacity: 0.7;
 }
 
 .course-header {
@@ -507,4 +558,50 @@ input[disabled] {
 .empty-state p {
     color: var(--secondary-color);
     margin-bottom: 1.5rem;
+}
+
+.semester-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.semester-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.semester-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--background-color);
+}
+
+.future-semester {
+    position: relative;
+    background: #f8f9fa;
+}
+
+.enrollment-notice {
+    background-color: #ffc107;
+    color: #000;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.course-card.disabled {
+    opacity: 0.8;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.course-card.disabled button {
+    background-color: #6c757d;
+    cursor: not-allowed;
 }

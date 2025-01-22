@@ -188,4 +188,22 @@ class Course {
             }
         }
     }
+
+    public function getCoursesBySemester($semester, $year) {
+        $query = "SELECT c.*, 
+                  (SELECT COUNT(*) FROM enrollments e 
+                   WHERE e.course_id = c.course_id AND e.status = 'Active') 
+                  as enrolled_count 
+                  FROM " . $this->table . " c 
+                  WHERE semester = :semester 
+                  AND year = :year 
+                  ORDER BY course_code";
+        
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':semester', $semester);
+        $stmt->bindParam(':year', $year);
+        $stmt->execute();
+        
+        return $stmt;
+    }
 } 
